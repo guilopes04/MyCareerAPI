@@ -8,7 +8,7 @@
     "test": "jest"
   },
   "keywords": [],
-  "author": "",
+  "author": "Guilherme Lopes",
   "license": "ISC",
   "dependencies": {
     "@types/cors": "^2.8.16",
