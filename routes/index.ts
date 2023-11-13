@@ -9,19 +9,25 @@ router.get('/', (req: Request, res: Response) => {
   res.send(homeTemplate)
 })
 
-router.get('/onboarding', (req: Request, res: Response) => {
+router.get('/myCredentials', (req: Request, res: Response) => {
   res.send(onboardingTemplate)
+  //chamada do get historico de senhas
 })
 
-router.post('/onboarding', (req: Request, res: Response) => {
+router.post('/password', (req: Request, res: Response) => {
   console.log(req)
-  // chamada metodo para salvar infos do onboarding
+  //chamada da criacao da senha + ambiente associado
 })
 
-router.get('/career-resume', (req: Request, res: Response) => {
+router.post('/generatePassword', (req: Request, res: Response) => {
   console.log(req)
-  // chamada metodo para regastar careerResume
+  // chamada metodo para gerar senha
   res.send(careerResume)
+})
+
+router.put('/password', (req: Request, res: Response) => {
+  console.log(req)
+  //chamada da criacao da senha + ambiente associado
 })
 
 export default router
