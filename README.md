@@ -1,22 +1,22 @@
-# MyCareerAPI
+# SecretsManager
 
 ## Objetivo
 
-MyCareerAPI é uma plataforma interativa e intuitiva que permite aos profissionais documentar, visualizar e compartilhar suas trajetórias de carreira. Através de uma interface amigável e elegante, os usuários podem registrar suas experiências profissionais, habilidades, formação, um breve resumo sobre si mesmos e links adicionais, como portfólios e perfis do GitHub. Isso cria um perfil de carreira completo e detalhado que pode ser facilmente atualizado e personalizado. Construído com React no front-end e Express no back-end, ambos com TypeScript, o MyCareerAPI é uma ferramenta robusta e flexível para o gerenciamento de carreiras.
+SecretsManager é uma plataforma segura e intuitiva que permite aos usuários gerenciar, armazenar e gerar senhas fortes e personalizadas. Construído com Express no back-end usando TypeScript, SecretsManager é uma ferramenta robusta e flexível para o gerenciamento de senhas.
 
 ## Casos de Uso
 
-- **Onboarding de Usuários**: Durante o processo de onboarding, os usuários são guiados através de uma série de etapas para coletar informações detalhadas sobre sua carreira e links adicionais.
+- **Geração de Senhas Fortes e Personalizadas**: Os usuários podem gerar novas senhas fortes e personalizadas, aumentando a segurança de suas contas online.
 
-- **Visualização da Trajetória de Carreira**: As informações coletadas são usadas para criar uma representação visual atraente da trajetória de carreira do usuário.
+- **Edição e Exclusão de Senhas**: Os usuários têm a capacidade de editar e excluir suas senhas a qualquer momento, permitindo que eles mantenham seu perfil de gerenciamento de senhas atualizado.
 
-- **Edição e Exclusão de Informações**: Os usuários têm a capacidade de editar e excluir suas informações a qualquer momento, permitindo que eles mantenham seu perfil de carreira atualizado.
+- **Salvar Senhas Geradas com Domínios Associados**: Os usuários podem salvar as senhas geradas juntamente com os domínios em que estão sendo utilizadas, proporcionando uma visão clara e organizada de suas informações de segurança.
 
 ## Funcionalidades Esperadas
 
-- Coleta de informações de carreira e links adicionais durante o onboarding
-- Renderização de uma página de trajetória de carreira com base nas informações coletadas
-- Capacidade de editar e excluir informações
-- Armazenamento seguro de informações do usuário no back-end
+- Geração de novas senhas fortes e personalizadas
+- Capacidade de editar e excluir senhas
+- Salvar senhas geradas com domínios associados
+- Armazenamento seguro das informações do usuário no back-end
 
-MyCareerAPI é uma ferramenta essencial para qualquer profissional que deseja acompanhar, apresentar e compartilhar sua trajetória de carreira de uma maneira organizada e visualmente agradável.
+SecretsManager é uma ferramenta essencial para qualquer pessoa que deseja acompanhar, gerenciar e melhorar a segurança de suas senhas de maneira organizada e eficiente.
