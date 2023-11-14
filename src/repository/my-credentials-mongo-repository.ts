@@ -17,12 +17,24 @@ export class MyCredentialsMongoRepository
   }
 
   async post(credential: MyCredentialsType): Promise<void> {
-    const collection = this.db.collection(this.collectionName)
+    await this.init()
+    let collection = this.db.collection(this.collectionName)
+    //if (!collection) this.db.createCollection(this.collectionName)
+
     await collection.insertOne(credential)
   }
 
-  put: () => Promise<void>
-  delete: () => Promise<void>
+  async put(credential: MyCredentialsType): Promise<void> {
+    await this.init()
+    const collection = this.db.collection(this.collectionName)
+    await collection.updateOne({ _id: credential._id }, { $set: credential })
+  }
+
+  async delete(id: string): Promise<void> {
+    await this.init()
+    const collection = this.db.collection(this.collectionName)
+    await collection.deleteOne({ _id: id })
+  }
 
   async get(): Promise<any> {
     await this.init()

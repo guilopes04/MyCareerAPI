@@ -18,18 +18,36 @@ router.get('/my-credentials', async (req: Request, res: Response) => {
   res.status(response.statusCode).send(response.body)
 })
 
-router.post('/password', (req: Request, res: Response) => {
-  console.log(req)
-  //chamada da criacao da senha + ambiente associado
+router.post('/password', async (req: Request, res: Response) => {
+  Object.assign(req.body, {
+    method: 'postCredential'
+  })
+  const response = await adapterEvent(new MyCredentialsController(), req)
+  res.status(response.statusCode).send(response.body)
 })
 
-router.post('/generate-password', (req: Request, res: Response) => {
-  res.send(myCredentials)
+router.post('/generate-password', async (req: Request, res: Response) => {
+  Object.assign(req.body, {
+    method: 'generatePassword'
+  })
+  const response = await adapterEvent(new MyCredentialsController(), req)
+  res.status(response.statusCode).send(response.body)
 })
 
-router.put('/password', (req: Request, res: Response) => {
-  console.log(req)
-  //chamada da criacao da senha + ambiente associado
+router.put('/password', async (req: Request, res: Response) => {
+  Object.assign(req.body, {
+    method: 'putCredential'
+  })
+  const response = await adapterEvent(new MyCredentialsController(), req)
+  res.status(response.statusCode).send(response.body)
+})
+
+router.delete('/password', async (req: Request, res: Response) => {
+  Object.assign(req.body, {
+    method: 'deleteCredential'
+  })
+  const response = await adapterEvent(new MyCredentialsController(), req)
+  res.status(response.statusCode).send(response.body)
 })
 
 export default router
