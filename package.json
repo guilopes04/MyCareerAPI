@@ -2,10 +2,14 @@
   "name": "secretsmanager",
   "version": "1.0.0",
   "description": "",
-  "main": "server.ts",
+  "main": "./dist/routes/server/server.js",
   "scripts": {
-    "start": "ts-node server.ts",
-    "test": "mocha -r ts-node/register test/**/*.test.ts"
+    "start": "ts-node ./dist/routes/server/server.js",
+    "test": "mocha -r ts-node/register test/**/*.test.ts",
+    "build": "rimraf dist && tsc",
+    "up": "npm run build && docker-compose up",
+    "down": "docker-compose down",
+    "debug": "nodemon -L --watch ./dist"
   },
   "keywords": [],
   "author": "Guilherme Lopes",
@@ -18,13 +22,15 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "mongodb": "^6.2.0",
-    "typescript": "^5.2.2"
+    "nodemon": "^3.0.1",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.2.2",
+    "ts-node": "^10.9.1"
   },
   "devDependencies": {
     "@types/chai": "^4.3.10",
     "@types/mocha": "^10.0.4",
     "chai": "^4.3.10",
-    "mocha": "^10.2.0",
-    "ts-node": "^10.9.1"
+    "mocha": "^10.2.0"
   }
 }

@@ -6,8 +6,7 @@ export const adapterEvent = async (controller: Controller, req: Request) => {
   const params: ParamsType = {
     queryParams: req.query || {},
     path: req.params || {},
-    body: req.body || {},
-    method: req.method
+    body: req.body || {}
   }
 
   return await controller.handle(params)

@@ -1,16 +1,18 @@
-import { Db, MongoClient } from 'mongodb'
+import { Db } from 'mongodb'
 import { MyCredentialsType } from '../domain/my-credentials-type'
 import { MyCredentialsRepositoryType } from '../domain/my-credentials-repository-type'
-import myCredentialsMock from '../../routes/mocks/my-credentials-mock'
 import { repositoryHelper } from './repository-helper'
+import myCredentialsMock from '../../routes/mocks/my-credentials-mock'
 
 export class MyCredentialsMongoRepository
   implements MyCredentialsRepositoryType
 {
   db: Db
 
-  constructor() {
-    this.db = repositoryHelper.getClient()
+  constructor() {}
+
+  async init() {
+    this.db = await repositoryHelper.getClient()
   }
 
   async post(credential: MyCredentialsType): Promise<void> {
@@ -21,9 +23,10 @@ export class MyCredentialsMongoRepository
   put: () => Promise<void>
   delete: () => Promise<void>
 
-  async get(): Promise<MyCredentialsType[]> {
-    const collection = this.db.collection('myCredentials')
+  async get(): Promise<any> {
+    await this.init()
+    const collection = this.db.collection('myCollection')
     const myCredentials = await collection.find().toArray()
-    return myCredentialsMock
+    return myCredentials
   }
 }

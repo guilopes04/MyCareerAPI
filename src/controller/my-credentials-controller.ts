@@ -21,9 +21,7 @@ export class MyCredentialsController implements Controller {
 
   async handle(params: ParamsType): Promise<HttpResponse> {
     try {
-      const { method } = params
-      if (!method) return new NotFoundError().toHttpResponse()
-      const response = await this.service[method](params)
+      const response = await this.service.handle(params)
       return new OKResponse(response).toHttpResponse()
     } catch (e) {
       console.error(e)

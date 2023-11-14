@@ -1,6 +1,5 @@
 export type ParamsType = {
   queryParams?: object
-  body: object
+  body: any
   path?: object
-  method: string
 }

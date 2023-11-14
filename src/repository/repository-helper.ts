@@ -5,17 +5,16 @@ export const repositoryHelper = {
   client: null as MongoClient,
 
   async connect(): Promise<void> {
-    const url = 'mongodb://localhost:27017'
-    const dbName = 'mydatabase'
+    const url = 'mongodb://mongo-container:27017'
 
-    this.client = await new MongoClient(url).connect()
+    this.client = await MongoClient.connect(url)
 
-    this.db = this.client.db(dbName)
+    this.db = await this.client.db()
   },
 
-  getClient(): Db {
+  async getClient(): Promise<Db> {
     if (!this.db) {
-      this.connect()
+      await this.connect()
     }
     return this.db
   }

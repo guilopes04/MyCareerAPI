@@ -3,8 +3,7 @@ import { MyCredentialsController } from '../src/controller/my-credentials-contro
 
 describe('/my-credentials', async function () {
   const response = await new MyCredentialsController().handle({
-    body: {},
-    method: 'getMyCredentials'
+    body: { method: 'getMyCredentials' }
   })
   console.clear()
 
