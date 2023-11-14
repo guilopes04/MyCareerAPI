@@ -25,7 +25,7 @@ export class MyCredentialsMongoRepository
 
   async get(): Promise<any> {
     await this.init()
-    const collection = this.db.collection('myCollection')
+    const collection = this.db.collection('myCredentials')
     const myCredentials = await collection.find().toArray()
     return myCredentials
   }
