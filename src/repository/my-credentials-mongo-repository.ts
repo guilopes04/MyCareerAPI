@@ -1,4 +1,4 @@
-import { Db } from 'mongodb'
+import { Db, ObjectId } from 'mongodb'
 import { MyCredentialsType } from '../domain/my-credentials-type'
 import { MyCredentialsRepositoryType } from '../domain/my-credentials-repository-type'
 import { repositoryHelper } from './repository-helper'
@@ -30,7 +30,7 @@ export class MyCredentialsMongoRepository
     await collection.updateOne({ _id: credential._id }, { $set: credential })
   }
 
-  async delete(id: string): Promise<void> {
+  async delete(id: ObjectId): Promise<void> {
     await this.init()
     const collection = this.db.collection(this.collectionName)
     await collection.deleteOne({ _id: id })
