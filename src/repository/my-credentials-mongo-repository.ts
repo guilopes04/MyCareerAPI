@@ -8,6 +8,7 @@ export class MyCredentialsMongoRepository
   implements MyCredentialsRepositoryType
 {
   db: Db
+  collectionName: string = 'myCredentials'
 
   constructor() {}
 
@@ -16,7 +17,7 @@ export class MyCredentialsMongoRepository
   }
 
   async post(credential: MyCredentialsType): Promise<void> {
-    const collection = this.db.collection('myCredentials')
+    const collection = this.db.collection(this.collectionName)
     await collection.insertOne(credential)
   }
 
@@ -25,7 +26,7 @@ export class MyCredentialsMongoRepository
 
   async get(): Promise<any> {
     await this.init()
-    const collection = this.db.collection('myCredentials')
+    const collection = this.db.collection(this.collectionName)
     const myCredentials = await collection.find().toArray()
     return myCredentials
   }
