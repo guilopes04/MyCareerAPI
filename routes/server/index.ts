@@ -1,5 +1,4 @@
 import express, { Request, Response } from 'express'
-import myCredentials from '../mocks/my-credentials-mock'
 import myCredentialsTemplate from '../templates/home-template'
 import { adapterEvent } from '../../src/adapter/adapter'
 import { MyCredentialsController } from '../../src/controller/my-credentials-controller'
@@ -26,7 +25,7 @@ router.post('/password', async (req: Request, res: Response) => {
   res.status(response.statusCode).send(response.body)
 })
 
-router.post('/generate-password', async (req: Request, res: Response) => {
+router.get('/generate-password', async (req: Request, res: Response) => {
   Object.assign(req.body, {
     method: 'generatePassword'
   })

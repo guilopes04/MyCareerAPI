@@ -2,7 +2,6 @@ import { Db, ObjectId } from 'mongodb'
 import { MyCredentialsType } from '../domain/my-credentials-type'
 import { MyCredentialsRepositoryType } from '../domain/my-credentials-repository-type'
 import { repositoryHelper } from './repository-helper'
-import myCredentialsMock from '../../routes/mocks/my-credentials-mock'
 
 export class MyCredentialsMongoRepository
   implements MyCredentialsRepositoryType
@@ -18,28 +17,39 @@ export class MyCredentialsMongoRepository
 
   async post(credential: MyCredentialsType): Promise<void> {
     await this.init()
+    //validar parametros
     let collection = this.db.collection(this.collectionName)
-    //if (!collection) this.db.createCollection(this.collectionName)
-
     await collection.insertOne(credential)
   }
 
   async put(credential: MyCredentialsType): Promise<void> {
+    console.log('credential:', credential)
     await this.init()
     const collection = this.db.collection(this.collectionName)
-    await collection.updateOne({ _id: credential._id }, { $set: credential })
+    try {
+      await collection.updateOne({ _id: credential._id }, { $set: credential })
+    } catch (error) {
+      // Tratar o erro aqui
+      console.error('Erro ao atualizar o documento:', error)
+      throw error
+    }
   }
 
-  async delete(id: ObjectId): Promise<void> {
+  async delete(_id: ObjectId): Promise<void> {
+    console.log('_id:', _id)
     await this.init()
     const collection = this.db.collection(this.collectionName)
-    await collection.deleteOne({ _id: id })
+    const response = await collection.deleteOne({ _id })
+    console.log('response:', response)
   }
 
-  async get(): Promise<any> {
+  async get(id?: ObjectId): Promise<any> {
     await this.init()
     const collection = this.db.collection(this.collectionName)
-    const myCredentials = await collection.find().toArray()
+
+    let myCredentials
+    if (id) myCredentials = await collection.findOne()
+    myCredentials = await collection.find().toArray()
     return myCredentials
   }
 }

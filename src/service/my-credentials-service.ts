@@ -21,7 +21,6 @@ export class MyCredentialsService {
 
   async getMyCredentials(params: ParamsType): Promise<any> {
     const myCredentials = await this.repository.get()
-    console.log('• myCredentials: ', JSON.stringify(myCredentials))
     return { myCredentials }
   }
 
