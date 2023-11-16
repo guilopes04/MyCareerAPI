@@ -34,20 +34,20 @@ Esta rota retorna a página inicial do aplicativo.
 
 ### GET /my-credentials
 
-Esta rota é usada para obter as credenciais do usuário. Ela chama o método `getMyCredentials` do `MyCredentialsController`.
+Esta rota é usada para obter as credenciais do usuário. Ela chama o método `getMyCredentials` do `MyCredentialsService`.
 
 ### POST /password
 
-Esta rota é usada para criar uma nova senha. Ela chama o método `postCredential` do `MyCredentialsController`.
+Esta rota é usada para criar uma nova senha. Ela chama o método `postCredential` do `MyCredentialsService`.
 
 ### GET /generate-password
 
-Esta rota é usada para gerar uma nova senha. Ela chama o método `generatePassword` do `MyCredentialsController`.
+Esta rota é usada para gerar uma nova senha. Ela chama o método `generatePassword` do `MyCredentialsService`.
 
 ### PUT /password
 
-Esta rota é usada para atualizar uma senha existente. Ela chama o método `putCredential` do `MyCredentialsController`.
+Esta rota é usada para atualizar uma senha existente. Ela chama o método `putCredential` do `MyCredentialsService`.
 
 ### DELETE /password
 
-Esta rota é usada para excluir uma senha existente. Ela chama o método `deleteCredential` do `MyCredentialsController`.
+Esta rota é usada para excluir uma senha existente. Ela chama o método `deleteCredential` do `MyCredentialsService`.
