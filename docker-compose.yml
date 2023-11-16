@@ -20,7 +20,7 @@ services:
       - ./dist/:/usr/src/secrets-manager/dist/
       - ./package.json:/usr/src/secrets-manager/package.json
     ports:
-      - '3000:3000'
+      - '8080:8080'
       - '9222:9222'
     links:
       - mongo
