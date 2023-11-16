@@ -4,6 +4,8 @@
 
 SecretsManager é uma plataforma segura e intuitiva que permite aos usuários gerenciar, armazenar e gerar senhas fortes e personalizadas. Construído com Express no back-end usando TypeScript, SecretsManager é uma ferramenta robusta e flexível para o gerenciamento de senhas.
 
+SecretsManager é uma ferramenta essencial para qualquer pessoa que deseja acompanhar, gerenciar e melhorar a segurança de suas senhas de maneira organizada e eficiente.
+
 ## Casos de Uso
 
 - **Geração de Senhas Fortes e Personalizadas**: Os usuários podem gerar novas senhas fortes e personalizadas, aumentando a segurança de suas contas online.
@@ -19,4 +21,33 @@ SecretsManager é uma plataforma segura e intuitiva que permite aos usuários ge
 - Salvar senhas geradas com domínios associados
 - Armazenamento seguro das informações do usuário no back-end
 
-SecretsManager é uma ferramenta essencial para qualquer pessoa que deseja acompanhar, gerenciar e melhorar a segurança de suas senhas de maneira organizada e eficiente.
+## Como Rodar
+
+- necessário ter docker e npm instalado em sua máquina
+- basta rodar npm run up
+
+## Rotas
+
+### GET /
+
+Esta rota retorna a página inicial do aplicativo.
+
+### GET /my-credentials
+
+Esta rota é usada para obter as credenciais do usuário. Ela chama o método `getMyCredentials` do `MyCredentialsController`.
+
+### POST /password
+
+Esta rota é usada para criar uma nova senha. Ela chama o método `postCredential` do `MyCredentialsController`.
+
+### GET /generate-password
+
+Esta rota é usada para gerar uma nova senha. Ela chama o método `generatePassword` do `MyCredentialsController`.
+
+### PUT /password
+
+Esta rota é usada para atualizar uma senha existente. Ela chama o método `putCredential` do `MyCredentialsController`.
+
+### DELETE /password
+
+Esta rota é usada para excluir uma senha existente. Ela chama o método `deleteCredential` do `MyCredentialsController`.
