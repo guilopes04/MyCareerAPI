@@ -17,39 +17,33 @@ export class MyCredentialsMongoRepository
 
   async post(credential: MyCredentialsType): Promise<void> {
     await this.init()
-    //validar parametros
     let collection = this.db.collection(this.collectionName)
     await collection.insertOne(credential)
   }
 
   async put(credential: MyCredentialsType): Promise<void> {
-    console.log('credential:', credential)
     await this.init()
     const collection = this.db.collection(this.collectionName)
-    try {
-      await collection.updateOne({ _id: credential._id }, { $set: credential })
-    } catch (error) {
-      // Tratar o erro aqui
-      console.error('Erro ao atualizar o documento:', error)
-      throw error
-    }
+    await collection.updateOne({ _id: credential._id }, { $set: credential })
   }
 
   async delete(_id: ObjectId): Promise<void> {
-    console.log('_id:', _id)
     await this.init()
     const collection = this.db.collection(this.collectionName)
-    const response = await collection.deleteOne({ _id })
-    console.log('response:', response)
+    await collection.deleteOne({ _id })
   }
 
-  async get(id?: ObjectId): Promise<any> {
+  async get(_id?: ObjectId): Promise<any> {
     await this.init()
     const collection = this.db.collection(this.collectionName)
 
     let myCredentials
-    if (id) myCredentials = await collection.findOne()
-    myCredentials = await collection.find().toArray()
+    if (!_id) {
+      myCredentials = await collection.find().toArray()
+    } else {
+      myCredentials = await collection.findOne({ _id })
+    }
+
     return myCredentials
   }
 }

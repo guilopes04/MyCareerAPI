@@ -9,5 +9,7 @@ export const adapterEvent = async (controller: Controller, req: Request) => {
     body: req.body || {}
   }
 
+  console.log(`Starting event with: ${params}`)
+
   return await controller.handle(params)
 }
