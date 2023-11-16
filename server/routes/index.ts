@@ -25,7 +25,7 @@ router.post('/password', async (req: Request, res: Response) => {
   res.status(response.statusCode).send(response.body)
 })
 
-router.get('/generate-password', async (req: Request, res: Response) => {
+router.post('/generate-password', async (req: Request, res: Response) => {
   Object.assign(req.body, {
     method: 'generatePassword'
   })
