@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express'
-import myCredentialsTemplate from '../templates/home-template'
+import myCredentialsTemplate from './templates/home-template'
 import { adapterEvent } from '../../src/adapter/adapter'
 import { MyCredentialsController } from '../../src/controller/my-credentials-controller'
 

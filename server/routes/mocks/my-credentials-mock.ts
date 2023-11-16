@@ -1,4 +1,4 @@
-import { MyCredentialsType } from '../../src/domain/my-credentials-type'
+import { MyCredentialsType } from '../../../src/domain/my-credentials-type'
 
 const myCredentialsMock: MyCredentialsType[] = [
   {

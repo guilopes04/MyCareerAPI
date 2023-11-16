@@ -1,8 +1,12 @@
 import { Controller } from '../domain/controller'
 import { Request } from 'express'
 import { ParamsType } from '../domain/params-type'
+import { HttpResponse } from '../domain/http'
 
-export const adapterEvent = async (controller: Controller, req: Request) => {
+export const adapterEvent = async (
+  controller: Controller,
+  req: Request
+): Promise<HttpResponse> => {
   const params: ParamsType = {
     queryParams: req.query || {},
     path: req.params || {},
