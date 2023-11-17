@@ -23,8 +23,8 @@ SecretsManager é uma ferramenta essencial para qualquer pessoa que deseja acomp
 
 ## Como Rodar
 
-- necessário ter docker e npm instalado em sua máquina
-- basta rodar npm run up
+- Necessário ter o [docker](https://docs.docker.com/compose/install/) e [npm/node](https://nodejs.org/en/download) instalado em sua máquina.
+- Após instalado, basta rodar npm run up dentro do projeto e o projeto começará a ser buildado e rodado no docker.
 
 ## Rotas
 
@@ -40,14 +40,39 @@ Esta rota é usada para obter as credenciais do usuário. Ela chama o método `g
 
 Esta rota é usada para criar uma nova senha. Ela chama o método `postCredential` do `MyCredentialsService`.
 
+`{
+	"title": "Senha2",
+	"password": "LkjMnb@456",
+	"site": "www.exemplo2.com"
+}`
+
 ### GET /generate-password
 
 Esta rota é usada para gerar uma nova senha. Ela chama o método `generatePassword` do `MyCredentialsService`.
+
+`{
+	"length": 15,
+	"numbers": true,
+	"symbols": true,
+	"uppercase": true,
+	"lowercase": true
+}`
 
 ### PUT /password
 
 Esta rota é usada para atualizar uma senha existente. Ela chama o método `putCredential` do `MyCredentialsService`.
 
+`{
+	"_id": "655629e63e5d2f8ff3a6d78f",
+	"title": "Senha5",
+	"password": ",CATkH9@_S,8z`Z",
+"site": "www.exemplo5.com"
+}`
+
 ### DELETE /password
 
 Esta rota é usada para excluir uma senha existente. Ela chama o método `deleteCredential` do `MyCredentialsService`.
+
+`{
+	"_id": "655620f2b776e19109a5dfce"
+}`
