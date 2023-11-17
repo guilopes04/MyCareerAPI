@@ -65,7 +65,7 @@ Esta rota é usada para atualizar uma senha existente. Ela chama o método `putC
 `{
 	"_id": "655629e63e5d2f8ff3a6d78f",
 	"title": "Senha5",
-	"password": ",CATkH9@_S,8z`Z",
+	"password": ",CATkH9@_S,8z.Z",
 "site": "www.exemplo5.com"
 }`
 
