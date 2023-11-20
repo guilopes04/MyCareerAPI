@@ -41,7 +41,8 @@ router.put('/password', async (req: Request, res: Response) => {
   res.status(response.statusCode).send(response.body)
 })
 
-router.delete('/password', async (req: Request, res: Response) => {
+router.delete('/password/:_id', async (req: Request, res: Response) => {
+  console.log('body delete: ', req)
   Object.assign(req.body, {
     method: 'deleteCredential'
   })

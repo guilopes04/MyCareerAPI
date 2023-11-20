@@ -92,8 +92,8 @@ export class MyCredentialsService implements MyCredentialsServiceType {
   }
 
   async deleteCredential(params: ParamsType): Promise<void> {
-    this.verifyParams(['_id'], params.body)
-    const { _id } = params.body
+    this.verifyParams(['_id'], params.path)
+    const { _id } = params.path
 
     if (!_id) throw new NotFoundError()
 
